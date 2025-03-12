@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MultiTools: Free online tools for image compression, PDF conversion, PDF to image extraction, image resizing, OCR, and PDF merging with drag-and-drop support. Explore our futuristic utilities and blog for tips.">
+    <meta name="keywords" content="multitools, free tools, image compressor, pdf converter, futuristic tools, online utilities, blog">
+    <meta name="robots" content="index, follow">
+    <title>MultiTools - Futuristic Online Utilities</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f7fa;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,123,255,0.1), transparent);
+            animation: pulse 8s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+        .hero h1 {
+            background: linear-gradient(90deg, #007bff, #00c4cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-in;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tools-section {
+            margin-top: 60px;
+        }
+        .small-tool-card {
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 150px;
+            margin: 0 auto;
+        }
+        .small-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,123,255,0.2);
+        }
+        .small-tool-card i {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .small-tool-card h3 {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .small-tool-card p {
+            font-size: 0.7rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        .small-tool-card a {
+            background: linear-gradient(90deg, #007bff, #00c4cc);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+        .small-tool-card a:hover {
+            background: linear-gradient(90deg, #00c4cc, #007bff);
+        }
+        .blog-section {
+            margin-top: 70px;
+            padding: 50px;
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(0,196,204,0.1), transparent);
+            z-index: 0;
+        }
+        .blog-section h2 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(90deg, #007bff, #00c4cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        .blog-section h3 {
+            color: #34495e;
+            font-weight: 600;
+            margin-top: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        .blog-section p, .blog-section ul {
+            color: #7f8c8d;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .blog-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .blog-section a:hover {
+            color: #00c4cc;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            background: linear-gradient(145deg, #f0f4f8, #e9ecef);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+        }
+        .footer p {
+            color: #2c3e50;
+            margin: 0;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #00c4cc;
+        }
+        /* Ad Styles */
+        .ad-space {
+            background: linear-gradient(145deg, #f0f4f8, #e9ecef);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 10px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .ad-space.sidebar {
+            height: 600px; /* Vertical banner */
+            width: 100%;
+            max-width: 160px;
+        }
+        .ad-space.banner {
+            height: 90px; /* Horizontal banner */
+            width: 100%;
+            max-width: 728px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>MultiTools</h1>
+            <p>Futuristic Utilities for Modern Tasks - Free & Easy to Use</p>
+        </div>
+    </section>
+
+    <!-- Top Banner Ad -->
+    <div class="container">
+        <div class="ad-space banner">Advertisement (728x90)</div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Ad (Left) -->
+            <div class="col-md-2 d-none d-md-block">
+                <div class="ad-space sidebar">Advertisement (160x600)</div>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="col-md-8 tools-section">
+                <div class="row gy-4">
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-image"></i>
+                            <h3>Image Compressor</h3>
+                            <p>Shrink images fast.</p>
+                            <a href="image-compressor.html">Launch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-file-pdf"></i>
+                            <h3>PDF Converter</h3>
+                            <p>Images to PDF fast.</p>
+                            <a href="pdf-converter.html">Launch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-file-image"></i>
+                            <h3>PDF to Image</h3>
+                            <p>Extract images fast.</p>
+                            <a href="pdf-to-image.html">Launch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <h3>Image Resizer</h3>
+                            <p>Resize images fast.</p>
+                            <a href="image-resizer.html">Launch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-text-height"></i>
+                            <h3>Image to Text</h3>
+                            <p>OCR text fast.</p>
+                            <a href="image-to-text.html">Launch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="small-tool-card">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>PDF Merger</h3>
+                            <p>Merge PDFs fast.</p>
+                            <a href="pdf-merger.html">Launch</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section mt-5">
+                    <h2>Explore MultiTools: Your Ultimate Utility Hub</h2>
+                    <section>
+                        <h3>Why MultiTools?</h3>
+                        <p>MultiTools brings you a collection of free, browser-based tools designed for efficiency. From <a href="image-compressor.html">compressing images</a> to <a href="pdf-converter.html">converting files</a>, our utilities are fast, intuitive, and packed with modern features like drag-and-drop support.</p>
+                    </section>
+                    <section>
+                        <h3>Top Features</h3>
+                        <ul>
+                            <li><strong>Drag-and-Drop:</strong> Effortless file handling across all tools.</li>
+                            <li><strong>No Cost:</strong> Completely free with no sign-ups required.</li>
+                            <li><strong>High Performance:</strong> Quick processing with quality results.</li>
+                            <li><strong>Modern Design:</strong> Sleek, futuristic interface for a great experience.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Get Started</h3>
+                        <p>Pick a tool above to dive in! Need to streamline your workflow? Try combining <a href="image-resizer.html">Image Resizer</a> with <a href="pdf-merger.html">PDF Merger</a> for professional outputs.</p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Sidebar Ad (Right) -->
+            <div class="col-md-2 d-none d-md-block">
+                <div class="ad-space sidebar">Advertisement (160x600)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Banner Ad -->
+    <div class="container">
+        <div class="ad-space banner">Advertisement (728x90)</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© MultiTools 2025 | Built with <i class="fas fa-heart"></i> by Aqib Aamir</p>
+            <nav>
+                <a href="index.html">Home</a> |
+                <a href="image-compressor.html">Image Compressor</a> |
+                <a href="pdf-converter.html">PDF Converter</a> |
+                <a href="pdf-to-image.html">PDF to Image</a> |
+                <a href="image-resizer.html">Image Resizer</a> |
+                <a href="image-to-text.html">Image to Text</a> |
+                <a href="pdf-merger.html">PDF Merger</a> |
+                <a href="about-us.html">About Us</a> |
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
